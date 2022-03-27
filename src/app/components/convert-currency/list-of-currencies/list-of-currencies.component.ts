@@ -20,4 +20,8 @@ export class ListOfCurrenciesComponent implements OnInit {
   selectCurrency(currency: Currency) {
     this.selectedCurrency.emit(currency);
   }
+
+  identifyCurrency(index: number, currency: Currency) {
+    return currency.code;
+  }
 }

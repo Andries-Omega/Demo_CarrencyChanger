@@ -3,7 +3,10 @@
 >
   <button
     class="bg-blue-600 text-white w-24 h-10 px-4 rounded-md hover:bg-blue-700"
-    *ngFor="let currency of (listOfServices$ | async)! | listOfCurrenciesToArr"
+    *ngFor="
+      let currency of (listOfServices$ | async)! | listOfCurrenciesToArr;
+      trackBy: identifyCurrency
+    "
     title="Value: {{ currency.value }}"
     (click)="selectCurrency(currency)"
   >
