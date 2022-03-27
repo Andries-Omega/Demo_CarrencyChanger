@@ -1,5 +1,7 @@
 <div class="flex justify-center items-center h-screen">
-  <div class="bg-slate-100 w-10/12 md:w-2/4 h-[500px] rounded-lg pt-5">
+  <div
+    class="bg-slate-100 w-10/12 md:w-2/4 h-[400px] md:h-[250px] rounded-lg pt-5"
+  >
     <h1 class="text-2xl text-center border-b-2 border-blue-500 mb-2">
       Convert Currency
     </h1>
@@ -14,7 +16,7 @@
         (toDropChange)="toDropOpen = $event"
         (whatToConvert)="whatToConvertValue = $event"
       ></app-convert-currency-select>
-      <p class="text-xl">
+      <p class="text-xl text-center md:text-left">
         =
         {{
           (converstionCurrency$ | async)!
@@ -26,7 +28,7 @@
       class="{{
         fromDropOpen || toDropOpen
           ? 'hidden'
-          : 'w-fit mx-auto flex items-center px-40 h-10 rounded-md text-slate-100 bg-blue-500 hover:bg-blue-700 duration-500 mt-5'
+          : 'w-fit mx-auto flex items-center justify-center h-10 px-20 rounded-md text-slate-100 bg-blue-500 hover:bg-blue-700 duration-500 mt-5 mb-10'
       }}"
       (click)="convertCurrency()"
     >
@@ -35,7 +37,11 @@
         <i class="fa-solid fa-right-left ml-10"></i>
       </span>
     </button>
-    <div class="{{ fromDropOpen || toDropOpen ? ' h-full' : 'hidden' }}">
+    <div
+      class="{{
+        fromDropOpen || toDropOpen ? ' h-full mb-10 rounded-md' : 'hidden'
+      }}"
+    >
       <app-list-of-currencies
         (selectedCurrency)="handleCurrencySelect($event)"
       ></app-list-of-currencies>
