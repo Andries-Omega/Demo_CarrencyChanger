@@ -1,0 +1,12 @@
+<div
+  class="bg-slate-200 w-full h-full overflow-y-auto grid grid-cols-2 md:grid-cols-5 gap-3 py-5 place-items-center"
+>
+  <button
+    class="bg-blue-600 text-white w-24 h-10 px-4 rounded-md hover:bg-blue-700"
+    *ngFor="let currency of (listOfServices$ | async)! | listOfCurrenciesToArr"
+    title="Value: {{ currency.value }}"
+    (click)="selectCurrency(currency)"
+  >
+    {{ currency.code }}
+  </button>
+</div>
