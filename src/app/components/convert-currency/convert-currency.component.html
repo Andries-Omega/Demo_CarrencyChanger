@@ -21,6 +21,8 @@
         {{
           (converstionCurrency$ | async)!
             | convertConvertedCurrency: toCurrency.code
+            | currency
+              : (toCurrency.code === "ZAR" ? "R " : toCurrency.code + " ")
         }}
       </p>
     </div>
